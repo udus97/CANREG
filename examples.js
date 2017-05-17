@@ -36,15 +36,15 @@ $(document).ready(function() {
     'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
   ];
 
-  $('#the-basics .typeahead').typeahead({
-    hint: true,
-    highlight: true,
-    minLength: 1
-  },
-  {
-    name: 'states',
-    source: substringMatcher(states)
-  });
+//  $('#the-basics .typeahead').typeahead({
+//    hint: true,
+//    highlight: true,
+//    minLength: 1
+//  },
+//  {
+//    name: 'states',
+//    source: substringMatcher(states)
+//  });
 
   // bloodhound
   // ----------
@@ -70,130 +70,130 @@ $(document).ready(function() {
   // prefetch
   // --------
 
-  var countries = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.whitespace,
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    // url points to a json file that contains an array of country names, see
-    // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
-    prefetch: '../data/countries.json'
-  });
-
-  // passing in `null` for the `options` arguments will result in the default
-  // options being used
-  $('#prefetch .typeahead').typeahead(null, {
-    name: 'countries',
-    source: countries
-  });
+//  var countries = new Bloodhound({
+//    datumTokenizer: Bloodhound.tokenizers.whitespace,
+//    queryTokenizer: Bloodhound.tokenizers.whitespace,
+//    // url points to a json file that contains an array of country names, see
+//    // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+//    prefetch: '../data/countries.json'
+//  });
+//
+//  // passing in `null` for the `options` arguments will result in the default
+//  // options being used
+//  $('#prefetch .typeahead').typeahead(null, {
+//    name: 'countries',
+//    source: countries
+//  });
 
   // remote
   // ------
 
-  var bestPictures = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: '../data/films/post_1960.json',
-    remote: {
-      url: '../data/films/queries/%QUERY.json',
-      wildcard: '%QUERY'
-    }
-  });
-
-  $('#remote .typeahead').typeahead(null, {
-    name: 'best-pictures',
-    display: 'value',
-    source: bestPictures
-  });
+//  var bestPictures = new Bloodhound({
+//    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+//    queryTokenizer: Bloodhound.tokenizers.whitespace,
+//    prefetch: '../data/films/post_1960.json',
+//    remote: {
+//      url: '../data/films/queries/%QUERY.json',
+//      wildcard: '%QUERY'
+//    }
+//  });
+//
+//  $('#remote .typeahead').typeahead(null, {
+//    name: 'best-pictures',
+//    display: 'value',
+//    source: bestPictures
+//  });
 
   // default suggestions
   // -------------------
 
-  var nflTeams = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    identify: function(obj) { return obj.team; },
-    prefetch: '../data/nfl.json'
-  });
-
-  function nflTeamsWithDefaults(q, sync) {
-    if (q === '') {
-      sync(nflTeams.get('Detroit Lions', 'Green Bay Packers', 'Chicago Bears'));
-    }
-
-    else {
-      nflTeams.search(q, sync);
-    }
-  }
-
-  $('#default-suggestions .typeahead').typeahead({
-    minLength: 0,
-    highlight: true
-  },
-  {
-    name: 'nfl-teams',
-    display: 'team',
-    source: nflTeamsWithDefaults
-  });
+//  var nflTeams = new Bloodhound({
+//    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
+//    queryTokenizer: Bloodhound.tokenizers.whitespace,
+//    identify: function(obj) { return obj.team; },
+//    prefetch: '../data/nfl.json'
+//  });
+//
+//  function nflTeamsWithDefaults(q, sync) {
+//    if (q === '') {
+//      sync(nflTeams.get('Detroit Lions', 'Green Bay Packers', 'Chicago Bears'));
+//    }
+//
+//    else {
+//      nflTeams.search(q, sync);
+//    }
+//  }
+//
+//  $('#default-suggestions .typeahead').typeahead({
+//    minLength: 0,
+//    highlight: true
+//  },
+//  {
+//    name: 'nfl-teams',
+//    display: 'team',
+//    source: nflTeamsWithDefaults
+//  });
 
   // custom templates
   // ----------------
 
-  $('#custom-templates .typeahead').typeahead(null, {
-    name: 'best-pictures',
-    display: 'value',
-    source: bestPictures,
-    templates: {
-      empty: [
-        '<div class="empty-message">',
-          'unable to find any Best Picture winners that match the current query',
-        '</div>'
-      ].join('\n'),
-      suggestion: Handlebars.compile('<div><strong>{{value}}</strong> – {{year}}</div>')
-    }
-  });
-
-  // multiple datasets
-  // -----------------
-
-  var nbaTeams = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: '../data/nba.json'
-  });
-
-  var nhlTeams = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: '../data/nhl.json'
-  });
-
-  $('#multiple-datasets .typeahead').typeahead({
-    highlight: true
-  },
-  {
-    name: 'nba-teams',
-    display: 'team',
-    source: nbaTeams,
-    templates: {
-      header: '<h3 class="league-name">NBA Teams</h3>'
-    }
-  },
-  {
-    name: 'nhl-teams',
-    display: 'team',
-    source: nhlTeams,
-    templates: {
-      header: '<h3 class="league-name">NHL Teams</h3>'
-    }
-  });
+//  $('#custom-templates .typeahead').typeahead(null, {
+//    name: 'best-pictures',
+//    display: 'value',
+//    source: bestPictures,
+//    templates: {
+//      empty: [
+//        '<div class="empty-message">',
+//          'unable to find any Best Picture winners that match the current query',
+//        '</div>'
+//      ].join('\n'),
+//      suggestion: Handlebars.compile('<div><strong>{{value}}</strong> – {{year}}</div>')
+//    }
+//  });
+//
+//  // multiple datasets
+//  // -----------------
+//
+//  var nbaTeams = new Bloodhound({
+//    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
+//    queryTokenizer: Bloodhound.tokenizers.whitespace,
+//    prefetch: '../data/nba.json'
+//  });
+//
+//  var nhlTeams = new Bloodhound({
+//    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
+//    queryTokenizer: Bloodhound.tokenizers.whitespace,
+//    prefetch: '../data/nhl.json'
+//  });
+//
+//  $('#multiple-datasets .typeahead').typeahead({
+//    highlight: true
+//  },
+//  {
+//    name: 'nba-teams',
+//    display: 'team',
+//    source: nbaTeams,
+//    templates: {
+//      header: '<h3 class="league-name">NBA Teams</h3>'
+//    }
+//  },
+//  {
+//    name: 'nhl-teams',
+//    display: 'team',
+//    source: nhlTeams,
+//    templates: {
+//      header: '<h3 class="league-name">NHL Teams</h3>'
+//    }
+//  });
 
   // scrollable dropdown menu
   // ------------------------
 
-  $('#scrollable-dropdown-menu .typeahead').typeahead(null, {
-    name: 'countries',
-    limit: 10,
-    source: countries
-  });
+//  $('#scrollable-dropdown-menu .typeahead').typeahead(null, {
+//    name: 'countries',
+//    limit: 10,
+//    source: countries
+//  });
 
 
   //scrollable-dropdown-menu-for-states
@@ -221,23 +221,23 @@ $(document).ready(function() {
   // rtl
   // ---
 
-  var arabicPhrases = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.whitespace,
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: [
-      "الإنجليزية",
-      "نعم",
-      "لا",
-      "مرحبا",
-      "أهلا"
-    ]
-  });
-
-  $('#rtl-support .typeahead').typeahead({
-    hint: false
-  },
-  {
-    name: 'arabic-phrases',
-    source: arabicPhrases
-  });
+//  var arabicPhrases = new Bloodhound({
+//    datumTokenizer: Bloodhound.tokenizers.whitespace,
+//    queryTokenizer: Bloodhound.tokenizers.whitespace,
+//    local: [
+//      "الإنجليزية",
+//      "نعم",
+//      "لا",
+//      "مرحبا",
+//      "أهلا"
+//    ]
+//  });
+//
+//  $('#rtl-support .typeahead').typeahead({
+//    hint: false
+//  },
+//  {
+//    name: 'arabic-phrases',
+//    source: arabicPhrases
+//  });
 });
