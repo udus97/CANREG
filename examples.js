@@ -195,6 +195,23 @@ $(document).ready(function() {
     source: countries
   });
 
+
+  //scrollable-dropdown-menu-for-states
+
+  $('#scrollable-dropdown-menu .typeahead').typeahead(null, {
+    name: 'states',
+    limit: 10,
+    source: states
+  });
+
+
+
+
+
+
+
+
+
   // rtl
   // ---
 
