@@ -198,7 +198,13 @@ $(document).ready(function() {
 
   //scrollable-dropdown-menu-for-states
 
-  $('#scrollable-dropdown-menu .typeahead').typeahead(null, {
+  $('#scrollable-dropdown-menu1 .typeahead').typeahead(null, {
+    name: 'states',
+    limit: 10,
+    source: states
+  });
+
+  $('#scrollable-dropdown-menu2 .typeahead').typeahead(null, {
     name: 'states',
     limit: 10,
     source: states
