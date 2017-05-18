@@ -79,13 +79,13 @@ $(document).ready(function () {
 
   $('#scrollable-dropdown-menu1 .typeahead').typeahead(null, {
     name: 'topography',
-    limit: 10,
+    limit: 30,
     source: topography
   });
 
   $('#scrollable-dropdown-menu2 .typeahead').typeahead(null, {
     name: 'morphology',
-    limit: 10,
+    limit: 30,
     source: morphology
   });
 

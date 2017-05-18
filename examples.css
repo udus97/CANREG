@@ -26,29 +26,11 @@ html {
 }
 
 
-a {
-  color: #03739c;
-  text-decoration: none;
-}
 
-a:hover {
-  text-decoration: underline;
-}
 
-.table-of-contents li {
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
-}
 
-.table-of-contents li a {
-  font-size: 16px;
-  color: #999;
-}
 
-p + p {
-  margin: 30px 0 0 0;
-}
+
 
 /* site theme */
 /* ---------- */
@@ -94,7 +76,8 @@ p + p {
 }
 
 .typeahead:focus {
-  border: 2px solid #0097cf;
+  border: 2px solid black;
+/*  #0097cf*/
 }
 
 .tt-query {
@@ -144,29 +127,14 @@ p + p {
   margin: 0;
 }
 
-.gist {
-  font-size: 14px;
-}
+
 
 /* example specific styles */
 /* ----------------------- */
 
-#custom-templates .empty-message {
-  padding: 5px 10px;
- text-align: center;
-}
-
-#multiple-datasets .league-name {
-  margin: 0 20px 5px 20px;
-  padding: 3px 0;
-  border-bottom: 1px solid #ccc;
-}
 
 #scrollable-dropdown-menu .tt-menu {
   max-height: 150px;
   overflow-y: auto;
 }
 
-#rtl-support .tt-menu {
-  text-align: right;
-}
