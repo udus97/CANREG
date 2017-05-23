@@ -79,7 +79,7 @@ $(document).ready(function () {
 
   $('#scrollable-dropdown-menu1 .typeahead').typeahead(null, {
     name: 'topography',
-    limit: 30,
+    limit: 50,
     source: topography
   });
 
