@@ -1,0 +1,5 @@
+The CANREG4 software used for entering information about patient cancer cases into the Cancer Registry Database is not a particularly user friendly piece of program and can be very frustrating to use especially when we get to the section where we enter the name of the morphology.
+
+There are 553 cancer morphologies in the CANREG program and there is no way to search through the morphology. One has to scroll through all 553 cases until one finds the particular case s/he is looking for!
+
+Doing this can be frustrating and the software is also not responsive. Fortunately for me, I had access to the text file containing all the names of the topographies and morphologies. I took this and stored it in an array and used the Twiiter Typeahead jQuery plugin to make it easy to search for the particular morphology one is looking for. Once a match is found, we can easily enter the code of the morphology into the CANREG system and move on with life.
